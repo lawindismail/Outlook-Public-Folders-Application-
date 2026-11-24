@@ -1,6 +1,8 @@
 # Build output
 /target/
 /dist/
+# The program is published on the Releases tab (built by GitHub Actions)
+/download/
 *.tmp
 
 # Local pictures and leftovers

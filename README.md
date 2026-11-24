@@ -1,5 +1,8 @@
 # Public Folders
 
+[![Latest release](https://img.shields.io/github/v/release/lawindismail/Outlook-Public-Folders-Application-?include_prereleases&label=download)](https://github.com/lawindismail/Outlook-Public-Folders-Application-/releases/latest)
+[![Build and release](https://github.com/lawindismail/Outlook-Public-Folders-Application-/actions/workflows/release.yml/badge.svg)](https://github.com/lawindismail/Outlook-Public-Folders-Application-/actions/workflows/release.yml)
+
 **A fast, lightweight Windows app for Exchange public folders — browse them,
 find any folder in a second, add e-mails and files, and export everything
 for a move to SharePoint.**
@@ -76,8 +79,10 @@ and it saves what it learns on your PC.
 
 ## Download and run
 
-1. Download **[`download/Public Folders.exe`](download/Public%20Folders.exe)**
-   (Windows 10/11, 64-bit). Nothing to install — put it anywhere.
+1. Download **`Public-Folders.exe`** from the
+   **[latest release](https://github.com/lawindismail/Outlook-Public-Folders-Application-/releases/latest)**
+   (Windows 10/11, 64-bit). Nothing to install — put it anywhere. (Every change
+   pushed to `main` is built and published there automatically.)
 2. Double-click it. The file isn't signed by a publisher, so Windows may show
    *"Windows protected your PC"* the first time: click **More info → Run anyway**.
 
@@ -176,6 +181,10 @@ the GNU toolchain on a PC without MinGW, copy
 `tools/cargo-config-gnu.example.toml` to `.cargo/config.toml` and fill in
 the two paths (it links with Rust's bundled `rust-lld`; `tools/dlltool.cmd`
 stands in for MinGW's dlltool).
+
+Releases: `.github/workflows/release.yml` builds and tests on GitHub's Windows
+runners for every push to `main` (release `v<version>-build.<n>`) and for
+tags like `v1.2.0` (release named after the tag), and attaches the program.
 
 Tests: `cargo test`. Live checks against classic Outlook (read-only) are
 marked `#[ignore]` — for example `cargo test live_mapping -- --ignored --nocapture`.
