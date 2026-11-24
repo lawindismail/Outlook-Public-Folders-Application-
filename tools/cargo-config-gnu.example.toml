@@ -1,0 +1,14 @@
+# Only needed if you build with the GNU Rust toolchain (x86_64-pc-windows-gnu)
+# on a PC WITHOUT MinGW. With the usual MSVC toolchain, ignore this file.
+#
+# Copy it to .cargo/config.toml and replace the two <...> paths:
+# 1. rustc's dlltool needs an assembler that rustup doesn't ship, so a small
+#    stand-in (tools/dlltool.cmd) builds import libraries with rust-lld.
+# 2. GNU ld mislinks those LLVM-style import libraries (the program crashes
+#    before main), so the final link uses rust-lld, which ships with Rust.
+[target.x86_64-pc-windows-gnu]
+linker = "<your user folder>/.rustup/toolchains/stable-x86_64-pc-windows-gnu/lib/rustlib/x86_64-pc-windows-gnu/bin/rust-lld.exe"
+rustflags = [
+  "-C", "linker-flavor=ld.lld",
+  "-C", "dlltool=<this repository>/tools/dlltool.cmd",
+]

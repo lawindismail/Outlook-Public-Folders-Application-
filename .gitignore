@@ -1,0 +1,12 @@
+# Build output
+/target/
+/dist/
+*.tmp
+
+# Local pictures and leftovers
+/shots/
+/tools/*.rs.txt
+/tools/*.used
+
+# Machine-specific build settings (see tools/cargo-config-gnu.example.toml)
+/.cargo/config.toml
